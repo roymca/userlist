@@ -15,7 +15,7 @@ app.controller('AppCtrl', function($scope,$http) {
 	
 	$scope.addcontact = function(){
 		console.log($scope.contact)
-		$http.post('/contactlist',$scope.contact).then(function(response){
+		$http.post('/contactlists',$scope.contact).then(function(response){
 			var data = response.data;
 			console.log(data);
 			refresh();
@@ -24,21 +24,21 @@ app.controller('AppCtrl', function($scope,$http) {
 
 	$scope.remove = function(id){
 		console.log(id);
-		$http.delete('/contactlist/'+id).then(function(response){
+		$http.delete('/contactlists/'+id).then(function(response){
 			refresh();
 		});
 	};
 
 	$scope.edit = function(id){
 		console.log(id);
-		$http.get('/contactlist/'+id).then(function(response){
+		$http.get('/contactlists/'+id).then(function(response){
 			$scope.contact = response.data;
 		});
 	};		
 
 	$scope.update = function(){
 		console.log($scope.contact._id);
-		$http.put('/contactlist/' + $scope.contact._id, $scope.contact).then(function(response){
+		$http.put('/contactlists/' + $scope.contact._id, $scope.contact).then(function(response){
 			refresh();
 		});
 	};
