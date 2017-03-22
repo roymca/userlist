@@ -5,7 +5,7 @@ var app = express();
 var ObjectID = require('mongodb').ObjectID;
 var MongoClient = require('mongodb').MongoClient;
 var bodyParser = require('body-parser');
-app.use(express.static(__dirname + "/public"))
+app.use(express.static(__dirname + "/public/controller"))
 app.use(bodyParser.json());
 app.use(function (req, res, next) {
 // Website you wish to allow to connect
